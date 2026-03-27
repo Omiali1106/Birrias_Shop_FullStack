@@ -105,7 +105,7 @@ function App() {
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        const respuesta = await fetch('http://localhost:5000/api/productos');
+        const respuesta = await fetch('https://birriasshopbackend.onrender.com/api/productos');
         const datos = await respuesta.json();
         setProductos(datos.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
       } catch (error) {
@@ -176,7 +176,7 @@ function App() {
     const loadToast = toast.loading('Procesando tu pago encriptado...');
 
     try {
-      const respuesta = await fetch('http://localhost:5000/api/compras', {
+      const respuesta = await fetch('https://birriasshopbackend.onrender.com/api/compras', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(carrito)
